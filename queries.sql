@@ -12,3 +12,8 @@ SELECT * from animals WHERE weight_kg BETWEEN 10.40 AND 17.30;
 BEGIN;
 UPDATE animals SET species = 'unspecified';
 ROLLBACK;
+
+BEGIN;
+UPDATE animals SET species = 'digimon' WHERE name LIKE '%mon';
+UPDATE animals SET species = 'pokemon' WHERE species IS NULL;
+COMMIT;
