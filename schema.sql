@@ -24,3 +24,7 @@ CREATE TABLE species (
     name VARCHAR(50) NOT NULL,
     PRIMARY KEY(id)
 );
+
+ALTER TABLE animals
+ADD PRIMARY KEY (id),
+DROP COLUMN species;
