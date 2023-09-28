@@ -26,3 +26,11 @@ INSERT INTO owners (full_name, age) VALUES
 INSERT INTO species (name) VALUES
 ('Pokemon'),
 ('Digimon');
+
+UPDATE animals AS a
+SET species_id = s.id
+FROM species AS s
+WHERE
+    (a.name LIKE '%mon' AND s.name = 'Digimon')
+    OR
+    (a.species_id IS NULL AND s.name = 'Pokemon');
