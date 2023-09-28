@@ -34,3 +34,15 @@ WHERE
     (a.name LIKE '%mon' AND s.name = 'Digimon')
     OR
     (a.species_id IS NULL AND s.name = 'Pokemon');
+
+UPDATE animals AS a
+SET owner_id = o.id
+FROM owners AS o
+WHERE
+    CASE
+        WHEN a.name = 'Agumon' THEN o.full_name = 'Sam Smith'
+        WHEN a.name IN ('Gabumon', 'Pikachu') THEN o.full_name = 'Jennifer Orwell'
+        WHEN a.name IN ('Devimon', 'Plantmon') THEN o.full_name = 'Bob'
+        WHEN a.name IN ('Charmander', 'Squirtle', 'Blossom') THEN o.full_name = 'Melody Pond'
+        WHEN a.name IN ('Angemon', 'Boarmon') THEN o.full_name = 'Dean Winchester'
+    END;
