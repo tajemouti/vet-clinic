@@ -28,3 +28,9 @@ CREATE TABLE species (
 ALTER TABLE animals
 ADD PRIMARY KEY (id),
 DROP COLUMN species;
+
+ALTER TABLE animals
+ADD COLUMN species_id INT,
+ADD CONSTRAINT species_fkey
+FOREIGN KEY (species_id)
+REFERENCES species(id);
